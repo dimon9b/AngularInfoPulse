@@ -27,7 +27,7 @@ export class CalculatorComponent implements OnInit {
   ngOnInit() {
   }
 
-
+  
   public addInInput(item) {
     switch (item) {
       case 'C':
