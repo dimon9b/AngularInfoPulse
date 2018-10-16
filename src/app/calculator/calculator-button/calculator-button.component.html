@@ -1,0 +1,3 @@
+<div *ngFor="let item of button" class="calc__button ">
+  <button class="calc__button_{{item}}" value="{{item}}" (click)="addInInput(item)">{{item}}</button>
+</div>

@@ -1,0 +1,27 @@
+.calc__input {
+  padding: 0 10px;
+}
+
+.calc__input input {
+  width: 216px;
+}
+
+.calc__buttons {
+  width: 240px;
+}
+
+.calc__button {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  margin: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.calc__button button {
+  width: 40px;
+  height: 40px;
+}
+

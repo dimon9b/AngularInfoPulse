@@ -1,0 +1,16 @@
+<div class="sort_area">
+  <div class="inputsArea">
+    <input id="input_number" type="number" [(ngModel)]="inputValue"/>
+  </div>
+  <div class="arrayArea">
+    <button class="add_in_array button" (click)="addInArray()">Add number</button>
+    <span class="array_of_number">{{arrayOfNumberOutput}}</span>
+  </div>
+  <div class="sortArea">
+    <button class="sort_inputNumber button" (click)="sort(arrayOfNumber)">Sort numbers</button>
+    <span class="array_of_number">{{sortedArray}}</span>
+  </div>
+  <div class="clearArea">
+    <button class="clearAll button" (click)="clear()">Clear all</button>
+  </div>
+</div>
