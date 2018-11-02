@@ -1,0 +1,26 @@
+:host {
+  height: 100vh;
+  width: 100vw;
+  display: block;
+}
+
+.registration {
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin: 20px auto;
+  padding: 20px
+}
+
+.registration button.btn-success {
+  display: block;
+  margin: 10px auto;
+  width: 100px
+}
+
+//.yellow-color.mat-checkbox-checked .mat-checkbox-background {
+//  background-color: green;
+//}
+//
+//.yellow-color.mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+//  background-color: green
+//}

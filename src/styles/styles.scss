@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import "vars";
+:root {
+  --my-awesome-color: green;
+}
+
+h1 {color: $red-color;}
+
+@media screen and (max-width: $size-xs) {
+  h1 {color: $yellow-color;}
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
