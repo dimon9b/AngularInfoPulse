@@ -1,4 +1,35 @@
-<h1>Hello</h1>
 <!--<app-yellow-title></app-yellow-title>-->
 <!--<app-sort-algoritm></app-sort-algoritm>-->
-<app-calculator></app-calculator>
+<!--<app-calculator></app-calculator>-->
+<!--<h1>Custom Property binding sample!</h1>-->
+<!--<hr>-->
+<!--<app-data-binding [someComponentText]="childHeaderText" (passDataToParent)="receiveData($event)"></app-data-binding>-->
+<!--<div class="parent-component">-->
+  <!--<h1>App Component Received Data: {{receivedData || 'Nothing received'}}</h1>-->
+  <!--<input placeholder="Child Header" [(ngModel)]="childHeaderText" />-->
+<!--</div>-->
+
+
+<!--<app-child-styles></app-child-styles>-->
+<!--<app-child-styles class="someClass"></app-child-styles>-->
+
+<div class="header">
+  <span>Some header</span>
+  <div class="navigation-bar">
+    <a [routerLink]="['']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a [routerLink]="['about']" routerLinkActive="active-link" [queryParams]="{'secondWay': 100}">About</a>
+    <a [routerLink]="['order-data']" routerLinkActive="active-link">Order</a>
+    <a [routerLink]="['user', 12]" routerLinkActive="active-link">User</a>
+  </div>
+</div>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+
+<div class="footer">
+  <span>Some footer</span>
+</div>
+
+
+

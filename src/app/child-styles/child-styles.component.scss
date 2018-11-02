@@ -1,0 +1,9 @@
+:host {
+  background: yellow;
+  color: red;
+  display: block;
+}
+
+:host(.someClass) {
+  background: green;
+}

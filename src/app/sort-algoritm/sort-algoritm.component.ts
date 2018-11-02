@@ -4,7 +4,7 @@ import {createInput} from '@angular/compiler/src/core';
 @Component({
   selector: 'app-sort-algoritm',
   templateUrl: './sort-algoritm.component.html',
-  styleUrls: ['./sort-algoritm.component.css']
+  styleUrls: ['./sort-algoritm.component.scss']
 })
 export class SortAlgoritmComponent {
 

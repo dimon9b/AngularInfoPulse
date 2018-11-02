@@ -1,0 +1,12 @@
+<p>
+  user works!
+</p>
+<div class="sub-navbar">
+  <a [routerLink]="['./']" routerLinkActive="active-user-link">User Main Page !! </a>
+  <a [routerLink]="['user-detail']" routerLinkActive="active-user-link">User Detail !! </a>
+  <a [routerLink]="['user-edit-info']" routerLinkActive="active-user-link">Edit User Info !! </a>
+  <a [routerLink]="['user-orders']" routerLinkActive="active-user-link">User Orders !! </a>
+</div>
+<div class="user-content">
+  <router-outlet></router-outlet>
+</div>

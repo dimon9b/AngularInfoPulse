@@ -3,14 +3,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-calculator-button',
   templateUrl: './calculator-button.component.html',
-  styleUrls: ['./calculator-button.component.css']
+  styleUrls: ['./calculator-button.component.scss']
 })
 export class CalculatorButtonComponent implements OnInit {
   @Input()
-  btnItem: string;
+  public btnItem: string;
 
   @Output()
-  btnClick = new EventEmitter<string>();
+  public btnClick = new EventEmitter<string>();
 
   constructor() { }
 

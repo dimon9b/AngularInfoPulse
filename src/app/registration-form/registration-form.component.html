@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-12 col-auto">
+      <form class="form registration">
+        <h1 class="text-center my-3">
+          Регистрационная форма
+        </h1>
+        <div class="form-group row">
+          <label for="email" class="col-sm-2">Email</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="email" placeholder="Введите email">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="pass" class="col-sm-2">Пароль</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="pass" placeholder="Пароль">
+          </div>
+        </div>
+        <p-inputMask [(ngModel)]="val" name="number" mask="99-9999"></p-inputMask>
+        <p-toggleButton [(ngModel)]="checked" onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" [style]="{'width':'150px'}" name="checked"></p-toggleButton>
+        <!--<mat-form-field>-->
+        <!--<input matInput [matDatepicker]="picker" placeholder="Choose a date">-->
+        <!--<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+        <!--<mat-datepicker #picker></mat-datepicker>-->
+        <!--</mat-form-field>-->
+
+        <section class="example-section">
+          <mat-checkbox name="checkbox" class="example-margin yellow-color" [(ngModel)]="checked">Checked</mat-checkbox>
+          <mat-checkbox name="checkbox" class="example-margin" [(ngModel)]="indeterminate">Indeterminate</mat-checkbox>
+        </section>
+        <button type="submit" class="btn btn-success">Войти</button>
+      </form>
+    </div>
+  </div>
+</div>

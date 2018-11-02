@@ -3,10 +3,8 @@
     <input class="input" [(ngModel)]="inputValue" />
   </div>
   <div class="calc__buttons">
-
     <div *ngFor="let item of button" class="calc__button ">
-      <app-calculator-button [btnItem]=item (btnClick)="addInInput(item)">
-      </app-calculator-button>
+      <app-calculator-button [btnItem]=item (btnClick)="addInInput($event)"></app-calculator-button>
     </div>
   </div>
 </div>

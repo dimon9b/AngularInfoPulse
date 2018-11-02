@@ -1,17 +1,11 @@
-import {Component, Input, Output, OnInit} from '@angular/core';
-import {parseIntAutoRadix} from '@angular/common/src/i18n/format_number';
-import {findIndex} from 'rxjs/operators';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
-  styleUrls: ['./calculator.component.css']
+  styleUrls: ['./calculator.component.scss']
 })
-export class CalculatorComponent implements OnInit {
-
-  // @Output() inputValue: string;
-  //
-  // @Input() itemValue: Array<string>;
+export class CalculatorComponent {
 
   public inputValue = '';
 
@@ -24,47 +18,13 @@ export class CalculatorComponent implements OnInit {
   constructor() {
   }
 
-  ngOnInit() {
-  }
-
-  
   public addInInput(item) {
     switch (item) {
       case 'C':
         this.inputValue = '';
         break;
       case '=':
-        this.numbers = this.inputValue.split(/[+=\-\*\/]/).map(num => parseInt(num, 10));
-        this.symbols = this.inputValue.split(/[0-9]/).filter(symbol => symbol !== ''); // иначе почему то разбивается с пробелами
-        let indexMultiply = this.symbols.indexOf('*');
-        while (indexMultiply >= 0) {
-          const resultMultiply = this.numbers[indexMultiply] * this.numbers[indexMultiply + 1];
-          this.symbols.splice(indexMultiply, 1);
-          this.numbers[indexMultiply] = resultMultiply;
-          this.numbers.splice(indexMultiply + 1, 1);
-          indexMultiply = this.symbols.indexOf('*');
-        }
-        let indexDivision = this.symbols.indexOf('/');
-        while (indexDivision >= 0) {
-          const resultDivision = this.numbers[indexDivision] / this.numbers[indexDivision + 1];
-          this.symbols.splice(indexDivision, 1);
-          this.numbers[indexDivision] = resultDivision;
-          this.numbers.splice(indexDivision + 1, 1);
-          indexDivision = this.symbols.indexOf('/');
-        }
-        while (this.symbols.length > 0) {
-          const firstSym = this.symbols[0];
-          let resultAdd;
-          if (firstSym === '+') {
-            resultAdd = this.numbers[0] + this.numbers[1];
-          } else {
-            resultAdd = this.numbers[0] - this.numbers[1];
-          }
-          this.symbols.splice(0, 1);
-          this.numbers[0] = resultAdd;
-          this.numbers.splice(1, 1);
-        }
-        this.inputValue = this.numbers.toString();
+        this.inputValue = this.calculateResult();
         break;
       default:
         this.inputValue += item;
@@ -72,5 +32,49 @@ export class CalculatorComponent implements OnInit {
     }
   }
 
- // еще необходимы скобочки, точка, возведение в степень
+  private calculateResult(): string {
+    this.numbers = this.inputValue.split(/[+=\-\*\/]/).map(num => parseInt(num, 10));
+    this.symbols = this.inputValue.split(/[0-9]/).filter(symbol => symbol !== ''); // иначе почему то разбивается с пробелами
+
+    this.calculateByPriority('*', '/');
+    this.calculateByPriority('+', '-');
+
+    return this.numbers.toString();
+  }
+
+  private calculateByPriority(symbol1: string, symbol2: string) {
+    let count = 0;
+    let currentSymbol = this.symbols[count];
+
+    while (count < this.symbols.length) {
+      if (currentSymbol === symbol1 || currentSymbol === symbol2) {
+        this.symbols.splice(count, 1);
+        this.numbers[count] = this.countThis(count, currentSymbol);
+        this.numbers.splice(count + 1, 1);
+        currentSymbol = this.symbols[count];
+      } else {
+        currentSymbol = this.symbols[++count];
+      }
+    }
+  }
+
+  private countThis(index: number, buttonValue: string) {
+    const leftNumber: number = this.numbers[index];
+    const rightNumber: number = this.numbers[index + 1];
+
+    switch (buttonValue) {
+      case '*':
+        return leftNumber * rightNumber;
+      case '/':
+        return leftNumber / rightNumber;
+      case '+':
+        return leftNumber + rightNumber;
+      case '-':
+        return leftNumber - rightNumber;
+      default:
+        return 0;
+    }
+  }
+
+  // еще необходимы скобочки, точка, возведение в степень
 }
